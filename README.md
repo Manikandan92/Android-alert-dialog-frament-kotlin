@@ -5,36 +5,46 @@
 1. Import project into Android Studio
 2. Initliazing the DialogFragment fragment for your BaseActivity.kt
 
-BaseActivity.kt
+# BaseActivity.kt
 
 
 
-
-fun showAlertDialog(
-        title: String?,
-        message: String,
-        isCancelNeeded: Boolean,
-        positiveButtonClickListener: DialogInterface.OnClickListener?,
-        negativeButtonClickListener: DialogInterface.OnClickListener?,
-        negativeButtonTitle: String?,
-        positiveButtonTitle: String?
-    ) {
-        try {
-            removeExistingDialog()
-            val alertDialogFragment = GeneralAlertDialogFragment.newInstance(
-                title,
-                message,
-                isCancelNeeded,
-                positiveButtonClickListener,
-                negativeButtonClickListener,
-                negativeButtonTitle,
-                positiveButtonTitle
-            )
-            alertDialogFragment.show(this.supportFragmentManager, LAConstant.ALERT_DIALOG_TAG)
-        } catch (e: Exception) {
-            LALog().e(TAG, "Base activity showAlertDialog: Caught exception: " + e.message, e)
-        }
-    }
+    /**
+     * Method which receives showAlertDialog request from other showAlertDialog() methods requested
+     *
+     * @param title                       The title to be displayed in the alert
+     * @param message                     The message to be displayed in the alert
+     * @param isCancelNeeded              Boolean to detect whether negative button needed
+     * @param positiveButtonClickListener The listener for positive button click event
+     * @param negativeButtonClickListener The listener for negative button click event
+     * @param negativeButtonTitle         The title of negative button
+     * @param positiveButtonTitle         The title of positive button
+     */
+        fun showAlertDialog(
+                title: String?,
+                message: String,
+                isCancelNeeded: Boolean,
+                positiveButtonClickListener: DialogInterface.OnClickListener?,
+                negativeButtonClickListener: DialogInterface.OnClickListener?,
+                negativeButtonTitle: String?,
+                positiveButtonTitle: String?
+            ) {
+                try {
+                    removeExistingDialog()
+                    val alertDialogFragment = GeneralAlertDialogFragment.newInstance(
+                        title,
+                        message,
+                        isCancelNeeded,
+                        positiveButtonClickListener,
+                        negativeButtonClickListener,
+                        negativeButtonTitle,
+                        positiveButtonTitle
+                    )
+                    alertDialogFragment.show(this.supportFragmentManager, LAConstant.ALERT_DIALOG_TAG)
+                } catch (e: Exception) {
+                    LALog().e(TAG, "Base activity showAlertDialog: Caught exception: " + e.message, e)
+                }
+            }
 
 
     /**
@@ -94,7 +104,7 @@ fun showAlertDialog(
     }
 
     
-    BaseFragment.kt
+# BaseFragment.kt
     
     /**
      * Method to get base activity.
