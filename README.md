@@ -176,7 +176,7 @@
     }
     
     
-    We can you used thought application in alert dialog fragment class is common.
+   We can you used thought application in alert dialog fragment class is common.
     
     
     
